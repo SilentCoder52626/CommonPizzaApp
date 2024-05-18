@@ -36,9 +36,10 @@
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                 </Border.GestureRecognizers>
-                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center" Padding="0,5">
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center" Padding="5,0">
+                    
                     <Label Text="Get Started" VerticalOptions="Center" FontSize="18" />
-                    <Image Source="right_arrow.png" VerticalOptions="Center" HeightRequest="30"/>
+                    <Image Source="right_arrow.png" VerticalOptions="Center" HeightRequest="25"/>
                 </HorizontalStackLayout>
             </Border>
         </VerticalStackLayout>

@@ -60,6 +60,7 @@
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
 	  <None Remove="Resources\Images\main_pizza.png" />
+	  <None Remove="Resources\Images\pizza_slice.png" />
 	  <None Remove="Resources\Images\right_arrow.png" />
 	</ItemGroup>
 
