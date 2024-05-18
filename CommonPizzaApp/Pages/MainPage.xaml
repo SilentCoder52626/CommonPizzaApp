@@ -1,0 +1,48 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommonPizzaApp.Pages.MainPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="DarkGoldenrod">
+
+    <Grid RowDefinitions="Auto,*,Auto"
+          Padding="15,25">
+
+        <Label Grid.Row="0"
+               Text="Common Pizza"
+               FontSize="45"
+               HorizontalOptions="Center"
+               FontAttributes="Bold"/>
+
+        <Image Source="main_pizza.png"
+               Grid.Row="1"
+               HeightRequest="250"
+               WidthRequest="250"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+
+        <VerticalStackLayout Grid.Row="2"
+                             Spacing="10">
+            <Label Text="The Taste of Italian Pizza"
+                   FontSize="32"
+                   FontAttributes="Bold"/>
+            <Label Text="Feel the taste of mouth watering pizza from its origin country"
+                   FontSize="18"
+                   LineHeight="1.2"/>
+
+            <Border StrokeShape="RoundRectangle 25"
+                    StrokeThickness="0"
+                    BackgroundColor="Goldenrod"
+                    HeightRequest="50">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center" Padding="0,5">
+                    <Label Text="Get Started" VerticalOptions="Center" FontSize="18" />
+                    <Image Source="right_arrow.png" VerticalOptions="Center" HeightRequest="30"/>
+                </HorizontalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>
