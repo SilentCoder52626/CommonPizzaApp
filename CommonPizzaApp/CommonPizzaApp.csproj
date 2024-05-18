@@ -60,8 +60,19 @@
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
 	  <None Remove="Resources\Images\main_pizza.png" />
+	  <None Remove="Resources\Images\pizza_eight.png" />
+	  <None Remove="Resources\Images\pizza_five.png" />
+	  <None Remove="Resources\Images\pizza_four.png" />
+	  <None Remove="Resources\Images\pizza_nine.png" />
+	  <None Remove="Resources\Images\pizza_one.png" />
+	  <None Remove="Resources\Images\pizza_seven.png" />
+	  <None Remove="Resources\Images\pizza_six.png" />
 	  <None Remove="Resources\Images\pizza_slice.png" />
+	  <None Remove="Resources\Images\pizza_ten.png" />
+	  <None Remove="Resources\Images\pizza_three.png" />
+	  <None Remove="Resources\Images\pizza_two.png" />
 	  <None Remove="Resources\Images\right_arrow.png" />
+	  <None Remove="Resources\Images\star.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -76,11 +87,6 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Models\" />
-	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 	<ItemGroup>

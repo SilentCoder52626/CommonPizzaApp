@@ -2,6 +2,9 @@
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
+using CommonPizzaApp.Services;
+using CommonPizzaApp.ViewModels;
+using CommonPizzaApp.Pages;
 
 namespace CommonPizzaApp
 {
@@ -22,6 +25,10 @@ namespace CommonPizzaApp
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             }).UseMauiCommunityToolkit();
+
+
+            builder.Services.AddSingleton<PizzaService>();
+            builder.Services.AddSingletonWithShellRoute<HomePage,HomeViewModel>(nameof(HomePage));
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

@@ -10,7 +10,7 @@
 
     <Shell.Resources>
         <Style x:Key="MyPageStyle" TargetType="Element">
-            <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Dark=Red,Light=Black}" />
+            <Setter Property="Shell.TitleColor" Value="Black" />
         </Style>
     </Shell.Resources>
     <ShellContent
