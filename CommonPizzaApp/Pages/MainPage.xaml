@@ -11,7 +11,8 @@
                Text="Common Pizza"
                FontSize="45"
                HorizontalOptions="Center"
-               FontAttributes="Bold"/>
+               FontAttributes="Bold"
+               TextColor="Black"/>
 
         <Image Source="main_pizza.png"
                Grid.Row="1"
@@ -24,10 +25,12 @@
                              Spacing="10">
             <Label Text="The Taste of Italian Pizza"
                    FontSize="32"
-                   FontAttributes="Bold"/>
+                   FontAttributes="Bold"
+                   TextColor="Black"/>
             <Label Text="Feel the taste of mouth watering pizza from its origin country"
                    FontSize="18"
-                   LineHeight="1.2"/>
+                   LineHeight="1.2"
+                   TextColor="Black"/>
 
             <Border StrokeShape="RoundRectangle 25"
                     StrokeThickness="0"
@@ -38,7 +41,7 @@
                 </Border.GestureRecognizers>
                 <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center" Padding="5,0">
                     
-                    <Label Text="Get Started" VerticalOptions="Center" FontSize="18" />
+                    <Label Text="Get Started" TextColor="Black" VerticalOptions="Center" FontSize="18" />
                     <Image Source="right_arrow.png" VerticalOptions="Center" HeightRequest="25"/>
                 </HorizontalStackLayout>
             </Border>

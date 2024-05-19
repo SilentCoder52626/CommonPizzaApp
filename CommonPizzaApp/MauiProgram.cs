@@ -29,6 +29,7 @@ namespace CommonPizzaApp
 
             builder.Services.AddSingleton<PizzaService>();
             builder.Services.AddSingletonWithShellRoute<HomePage,HomeViewModel>(nameof(HomePage));
+            builder.Services.AddSingletonWithShellRoute<AllPizzasPage,AllPizzasViewModel>(nameof(AllPizzasPage));
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

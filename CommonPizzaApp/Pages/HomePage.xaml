@@ -9,7 +9,7 @@
              Title="Pizza World"
              Padding="15">
     <ScrollView>
-        <VerticalStackLayout Spacing="10">
+        <VerticalStackLayout Spacing="14">
 
             <Border StrokeShape="RoundRectangle 10"
                     StrokeThickness="0"
@@ -58,10 +58,12 @@
                        TextColor="Goldenrod"
                        FontSize="15"
                        Padding="10,14"/>
-
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToAllPizzasPageCommand}" CommandParameter="{x:Boolean true}"/>
+                </Border.GestureRecognizers>
             </Border>
 
-            <BoxView HeightRequest="15" Color="Transparent"/>
+            <BoxView HeightRequest="2" Color="Transparent"/>
 
             <Grid  ColumnDefinitions="*,*">
                 <Label Text="Popular Items" 
@@ -74,7 +76,11 @@
                        HorizontalOptions="End"
                        VerticalOptions="End"
                        Grid.Column="1"
-                       TextDecorations="Underline" Margin="0,15,0,0"/>
+                       TextDecorations="Underline" Margin="0,15,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToAllPizzasPageCommand}" CommandParameter="{x:Boolean false}"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </Grid>
 
             <FlexLayout BindableLayout.ItemsSource="{Binding Pizzas}"
