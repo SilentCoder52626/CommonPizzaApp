@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CommonPizzaApp.ViewModels"
+             xmlns:models="clr-namespace:CommonPizzaApp.Models"
+             xmlns:tollkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="CommonPizzaApp.Pages.DetailsPage"
+             x:DataType="vm:DetailsViewModel"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="White"
+             Title="">
+    <ContentPage.Behaviors>
+        <tollkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent"/>
+    </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="QuantityBtn" TargetType="ImageButton">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <ScrollView Padding="15">
+            <VerticalStackLayout Spacing="15">
+                <Image Source="{Binding Pizza.Image}"
+                       HeightRequest="200"
+                       WidthRequest="200"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                <Label Text="{Binding Pizza.Name}"
+                       HorizontalOptions="Center"
+                       TextColor="Black"
+                       FontSize="24"
+                       FontAttributes="Bold"/>
+
+                <Grid ColumnDefinitions="*,*">
+                    <Label Grid.Column="0"
+           Text="{Binding Pizza.Price,StringFormat='${0:N2}'}"
+           FontAttributes="Bold"
+                           FontSize="18"
+           TextColor="Green"/>
+
+                    <HorizontalStackLayout Grid.Column="1" 
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           Spacing="2">
+
+                        <Label Text="{Binding Pizza.Rating,StringFormat='{0:N2}'}"
+               HorizontalOptions="End"
+               VerticalOptions="End"
+               TextColor="Black"/>
+                        <Image Source="star.png"
+               HeightRequest="15"
+               WidthRequest="15">
+                            <Image.Behaviors>
+                                <tollkit:IconTintColorBehavior TintColor="DarkGoldenrod"/>
+                            </Image.Behaviors>
+                        </Image>
+
+
+                    </HorizontalStackLayout>
+                </Grid>
+
+                <Label Text="Description"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       Margin="0,15"
+                       TextColor="Black"/>
+
+                <Label FontSize="14"
+                       TextColor="Black"
+                       Text="Pizza, dish of Italian origin consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, tomato, olives, mozzarella or other cheese, and many other ingredients, baked quickly—usually, in a commercial setting, using a wood-fired oven heated to a very high temperature—and served hot."
+                       LineHeight="1.5"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+        <Border StrokeThickness="0"
+                x:Name="BottomBox"
+                StrokeShape="RoundRectangle 30,30,0,0"
+                BackgroundColor="DarkGoldenrod"
+                Margin="-1"
+                VerticalOptions="End"
+                HeightRequest="150"
+                Padding="15"
+                >
+            <Border.Shadow>
+                <Shadow Brush="Gold"
+                        Radius="30"/>
+            </Border.Shadow>
+
+            <Grid RowDefinitions="Auto,Auto"
+                  ColumnDefinitions="*,*">
+                <Label Grid.Row="0" Grid.Column="0"
+                       Text="{Binding Pizza.Amount,StringFormat='${0:N2}'}"
+                       FontSize="20"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+
+                <Grid Grid.Row="0" Grid.Column="1"
+                      ColumnDefinitions="50,40,50"
+                      VerticalOptions="Center"
+                      HorizontalOptions="End">
+
+                    <ImageButton Grid.Column="0"
+                                 Source="minus.png"
+                                 Style="{StaticResource QuantityBtn}">
+                        <ImageButton.Behaviors>
+                            <tollkit:IconTintColorBehavior TintColor="Gold"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+
+                    <Label Grid.Column="1"
+                           Text="{Binding Pizza.CardQuantity}"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="25"/>
+
+                    <ImageButton Grid.Column="2"
+                                 Source="plus.png"
+                                 Style="{StaticResource QuantityBtn}">
+                        <ImageButton.Behaviors>
+                            <tollkit:IconTintColorBehavior TintColor="Gold"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+
+                </Grid>
+                <Button Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Text="View Cart"
+                            Background="Goldenrod"
+                            HorizontalOptions="Center"
+                            CornerRadius="22"
+                            Padding="80,10"
+                            VerticalOptions="End"
+                            Margin="0,20"/>
+            </Grid>
+            
+        </Border>
+        <ImageButton Source="{OnPlatform Android=right_arrow.png,Default=back_circle.png}"
+                     VerticalOptions="Start"
+                     HorizontalOptions="Start"
+                     RotationY="{OnPlatform Android=180, Default=0}"
+                     Margin="5"
+                     HeightRequest="10"
+                     WidthRequest="10"
+                     Clicked="ImageButton_Clicked">
+            <ImageButton.Behaviors>
+                <tollkit:IconTintColorBehavior TintColor="DarkGoldenrod"/>
+            </ImageButton.Behaviors>
+        </ImageButton>
+    </Grid>
+</ContentPage>

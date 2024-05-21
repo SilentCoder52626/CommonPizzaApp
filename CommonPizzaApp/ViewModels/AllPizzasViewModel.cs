@@ -31,7 +31,15 @@
             }
             Searching = false;
         }
-
+        [RelayCommand]
+        private async Task GoToDetailsPage(Pizza pizza)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                [nameof(DetailsViewModel.Pizza)] = pizza
+            };
+            await Shell.Current.GoToAsync(nameof(DetailsPage), true, parameters);
+        }
 
     }
 }

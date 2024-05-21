@@ -142,10 +142,12 @@
                                         FontAttributes="Bold"
                                         VerticalOptions="End"
                                         HorizontalOptions="Center"
-                                        Padding="20,0"/>
+                                        Padding="20,0"
+                                        Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}},Path=GoToDetailsPageCommand}"
+                                        CommandParameter="{Binding .}"/>
                             </Grid>
 
-
+                           
                         </Border>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>

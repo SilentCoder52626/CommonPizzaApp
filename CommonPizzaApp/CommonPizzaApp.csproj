@@ -59,7 +59,9 @@
 
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
+	  <None Remove="Resources\Images\back_circle.png" />
 	  <None Remove="Resources\Images\main_pizza.png" />
+	  <None Remove="Resources\Images\minus.png" />
 	  <None Remove="Resources\Images\pizza_eight.png" />
 	  <None Remove="Resources\Images\pizza_five.png" />
 	  <None Remove="Resources\Images\pizza_four.png" />
@@ -71,6 +73,7 @@
 	  <None Remove="Resources\Images\pizza_ten.png" />
 	  <None Remove="Resources\Images\pizza_three.png" />
 	  <None Remove="Resources\Images\pizza_two.png" />
+	  <None Remove="Resources\Images\plus.png" />
 	  <None Remove="Resources\Images\right_arrow.png" />
 	  <None Remove="Resources\Images\star.png" />
 	</ItemGroup>
@@ -90,10 +93,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\DetailsPage.xaml.cs">
+	    <DependentUpon>DetailsPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Pages\AllPizzasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\DetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

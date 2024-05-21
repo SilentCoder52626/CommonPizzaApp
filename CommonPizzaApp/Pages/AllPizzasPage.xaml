@@ -122,6 +122,15 @@
                                                        HeightRequest="30"
                                                        VerticalOptions="Center"/>
                                             </HorizontalStackLayout>
+
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:AllPizzasViewModel}},Path=GoToDetailsPageCommand}"
+                                                                      CommandParameter="{Binding .}">
+
+
+                                                </TapGestureRecognizer>
+                                            </Border.GestureRecognizers>
+
                                         </Border>
 
                                     </VerticalStackLayout>
