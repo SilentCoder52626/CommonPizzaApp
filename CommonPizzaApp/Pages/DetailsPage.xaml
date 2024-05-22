@@ -15,8 +15,6 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="QuantityBtn" TargetType="ImageButton">
-                <Setter Property="HeightRequest" Value="40"/>
-                <Setter Property="WidthRequest" Value="40"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="Padding" Value="0"/>
             </Style>
@@ -107,10 +105,12 @@
 
                     <ImageButton Grid.Column="0"
                                  Source="minus.png"
-                                 Style="{StaticResource QuantityBtn}">
+                                 Style="{StaticResource QuantityBtn}"
+                                 Command="{Binding DecreaseQuantityCommand}">
                         <ImageButton.Behaviors>
                             <tollkit:IconTintColorBehavior TintColor="Gold"/>
                         </ImageButton.Behaviors>
+                       
                     </ImageButton>
 
                     <Label Grid.Column="1"
@@ -122,7 +122,8 @@
 
                     <ImageButton Grid.Column="2"
                                  Source="plus.png"
-                                 Style="{StaticResource QuantityBtn}">
+                                 Style="{StaticResource QuantityBtn}"
+                                 Command="{Binding AddQuantityCommand}">
                         <ImageButton.Behaviors>
                             <tollkit:IconTintColorBehavior TintColor="Gold"/>
                         </ImageButton.Behaviors>
@@ -137,7 +138,8 @@
                             CornerRadius="22"
                             Padding="80,10"
                             VerticalOptions="End"
-                            Margin="0,20"/>
+                            Margin="0,20"
+                        Command="{Binding ViewCartCommand}"/>
             </Grid>
             
         </Border>
@@ -146,8 +148,6 @@
                      HorizontalOptions="Start"
                      RotationY="{OnPlatform Android=180, Default=0}"
                      Margin="5"
-                     HeightRequest="10"
-                     WidthRequest="10"
                      Clicked="ImageButton_Clicked">
             <ImageButton.Behaviors>
                 <tollkit:IconTintColorBehavior TintColor="DarkGoldenrod"/>

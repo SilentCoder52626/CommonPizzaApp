@@ -10,3 +10,7 @@ global using System.Collections.ObjectModel;
 global using System.Linq;
 global using System.Text;
 global using CommunityToolkit.Mvvm.Input;
+global using CommunityToolkit.Maui.Alerts;
+global using CommunityToolkit.Maui.Core;
+
+

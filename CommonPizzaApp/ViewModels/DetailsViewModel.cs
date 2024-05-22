@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace CommonPizzaApp.ViewModels
 {
@@ -11,5 +7,28 @@ namespace CommonPizzaApp.ViewModels
     {
         [ObservableProperty]
         private Pizza _pizza;
+        [RelayCommand]
+        public async Task AddQuantity()
+        {
+            Pizza.CardQuantity++;
+        }
+        [RelayCommand]
+        public async Task DecreaseQuantity()
+        {
+            if(Pizza.CardQuantity > 0)
+                Pizza.CardQuantity--;
+        }
+        [RelayCommand]
+        public async Task ViewCart()
+        {
+            if(Pizza.CardQuantity > 0)
+            {
+
+            }
+            else
+            {
+                await Toast.Make("Please select quantity using plus (+) icon", ToastDuration.Short).Show();
+            }
+        }
     }
 }
