@@ -8,6 +8,11 @@ namespace CommonPizzaApp.ViewModels
 {
     public partial class CartViewModel : ObservableObject
     {
+
+
+        public EventHandler<Pizza> CartItemRemoved;
+        public EventHandler<Pizza> CartItemUpdated;
+        public EventHandler CartCleared;
         public ObservableCollection<Pizza> Items { get; set; } = new();
 
         [ObservableProperty]
@@ -28,14 +33,22 @@ namespace CommonPizzaApp.ViewModels
             ReCalculateTotalAmount();
         }
         [RelayCommand]
-        private void RemoveCartItem(int Id)
+        private async void RemoveCartItem(int Id)
         {
             var item = Items.FirstOrDefault(a => a.Id == Id);
             if (item is not null)
             {
                 Items.Remove(item);
                 ReCalculateTotalAmount();
+                CartItemRemoved?.Invoke(this,item);
+                var snackBar = Snackbar.Make($"'{item.Name}' removed from cart.", () =>
+                {
+                    Items.Add(item);
+                    CartItemUpdated?.Invoke(this,item);
 
+                }, "Undo",TimeSpan.FromSeconds(5),new SnackbarOptions() { CornerRadius=10, BackgroundColor=Colors.PaleGoldenrod});
+                await snackBar.Show();
+                
             }
 
         }
@@ -46,6 +59,7 @@ namespace CommonPizzaApp.ViewModels
             {
                 Items.Clear();
                 ReCalculateTotalAmount();
+                CartCleared?.Invoke(this,EventArgs.Empty);
                 await Toast.Make("Cart Cleared.",ToastDuration.Short).Show();
             }
 
@@ -55,7 +69,8 @@ namespace CommonPizzaApp.ViewModels
         {
             Items.Clear();
             ReCalculateTotalAmount();
-            //Navigate to checkout page
+            CartCleared?.Invoke(this, EventArgs.Empty);
+            await Shell.Current.GoToAsync(nameof(CheckoutPage));
         }
     }
 }

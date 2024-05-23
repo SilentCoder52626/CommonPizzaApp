@@ -10,4 +10,9 @@ public partial class CartPage : ContentPage
         _vm = vm;
         BindingContext = _vm;
     }
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(AllPizzasPage));
+    }
 }

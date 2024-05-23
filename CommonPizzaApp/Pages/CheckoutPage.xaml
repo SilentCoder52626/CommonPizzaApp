@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:vm="clr-namespace:CommonPizzaApp.ViewModels"
+ xmlns:models="clr-namespace:CommonPizzaApp.Models"
+ xmlns:tollkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="CommonPizzaApp.Pages.CheckoutPage"
+             x:DataType="vm:CheckoutViewModel"
+             BackgroundColor="PaleGoldenrod"
+             Title="Checkout">
+    <VerticalStackLayout VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         Spacing="25">
+        <Image Source="check.png"
+               x:Name="SuccessBtn"
+               HeightRequest="150"
+               WidthRequest="150"
+               Scale="0">
+            <Image.Behaviors>
+                <tollkit:IconTintColorBehavior TintColor="Green"/>
+            </Image.Behaviors>
+        </Image>
+        <Label Text="Order Placed Successfully"
+               x:Name="SuccessMessage"
+               FontSize="30"
+               TextColor="Green"
+               Scale="0"/>
+        <Button Text="Go to home screen"
+                x:Name="HomtBtn"
+                BackgroundColor="DarkGoldenrod"
+                CornerRadius="22"
+                HorizontalOptions="Center"
+                Padding="50,10"
+                Scale="0"
+                Opacity="0"
+                Command="{Binding GotToHomePageCommand}"/>
+
+    </VerticalStackLayout>
+</ContentPage>
