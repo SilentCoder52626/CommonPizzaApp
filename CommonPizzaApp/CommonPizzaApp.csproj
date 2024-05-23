@@ -60,6 +60,7 @@
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
 	  <None Remove="Resources\Images\back_circle.png" />
+	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\main_pizza.png" />
 	  <None Remove="Resources\Images\minus.png" />
 	  <None Remove="Resources\Images\pizza_eight.png" />
@@ -100,6 +101,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Pages\AllPizzasPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\CartPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\HomePage.xaml">

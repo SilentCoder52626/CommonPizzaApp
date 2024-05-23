@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CommonPizzaApp.ViewModels"
+             xmlns:models="clr-namespace:CommonPizzaApp.Models"
+             xmlns:tollkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="CommonPizzaApp.Pages.CartPage"
+             x:DataType="vm:CartViewModel"
+             Title="Cart">
+    <Grid RowDefinitions="*"
+          ColumnDefinitions="*">
+        <CollectionView ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Pizza">
+                    <Border StrokeShape="RoundRectangle 10"
+                            StrokeThickness="0"
+                            BackgroundColor="White">
+                        <Grid ColumnDefinitions="25,Auto,50,*,80,25">
+                            <Label Grid.Column="0"
+                                   Text="{Binding CardQuantity}"
+                                   TextColor="Black"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   FontSize="16"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="1"
+                                   Text="X"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                            <Image Grid.Column="2"
+                                   Source="{Binding}"
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
